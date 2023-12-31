@@ -183,12 +183,15 @@ questionList.forEach(listEntry => {
   const question = {
     exclusions: listEntry.excludedPlatforms || [],
     heading: listEntry.heading,
-    question: t(`faqQuestion${listEntry.translationIndex}`),
-    web: t(`webFaqAnswer${listEntry.translationIndex}`, {
-      //  TODO: Need to pull these values from nconf
-      techAssistanceEmail: 'admin@habitica.com',
-      wikiTechAssistanceEmail: 'mailto:admin@habitica.com',
-    }),
+    question: `faqQuestion${listEntry.translationIndex}`,
+    web: {
+      answer: `webFaqAnswer${listEntry.translationIndex}`,
+      // TODO: Need to pull these values from nconf
+      assistanceEmails: {
+        techAssistanceEmail: 'admin@habitica.com',
+        wikiTechAssistanceEmail: 'mailto:admin@habitica.com',
+      },
+    },
   };
 
   faq.questions.push(question);

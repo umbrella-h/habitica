@@ -48,7 +48,7 @@
               class="headings"
               @click="handleClick($event)"
             >
-              {{ entry.question }}
+              {{ $t(entry.question) }}
             </h3>
             <b-collapse
               :id="entry.heading"
@@ -59,7 +59,7 @@
               <!-- questions -->
               <div
                 v-once
-                v-markdown="entry.web"
+                v-markdown="$t(entry.web.answer, entry.web.assistanceEmails)"
                 class="card-body p-0 pb-3"
               ></div>
             </b-collapse>
